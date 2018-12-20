@@ -3,8 +3,13 @@ version = 1.0
 tarname = $(package)
 distdir = $(tarname)-$(version)
 
-prefix=/usr/local
+prefix      = /usr/local
+exec_prefix = $(prefix)
+bindir      = $(exec_prefix)/bin
+
 export prefix
+export exec_prefix
+export bindir
 
 all clean check install uninstall jupiter:
 	cd src && $(MAKE) $@
