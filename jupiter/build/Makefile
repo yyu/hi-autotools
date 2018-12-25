@@ -12,6 +12,10 @@ prefix      = /usr/local
 exec_prefix = ${prefix}
 bindir      = ${exec_prefix}/bin
 
+# VPATH-specific substitution variables
+srcdir = ..
+VPATH  = ..
+
 export prefix
 export exec_prefix
 export bindir
@@ -42,12 +46,12 @@ $(distdir).tar.gz: $(distdir)
 	rm -rf     $(distdir)
 
 $(distdir): FORCE
-	mkdir -p           $(distdir)/src
-	cp configure.ac    $(distdir)
-	cp configure       $(distdir)
-	cp Makefile.in     $(distdir)
-	cp src/Makefile.in $(distdir)/src
-	cp src/main.c      $(distdir)/src
+	mkdir -p                     $(distdir)/src
+	cp $(srcdir)/configure.ac    $(distdir)
+	cp $(srcdir)/configure       $(distdir)
+	cp $(srcdir)/Makefile.in     $(distdir)
+	cp $(srcdir)/src/Makefile.in $(distdir)/src
+	cp $(srcdir)/src/main.c      $(distdir)/src
 
 FORCE:
 	-rm     $(distdir).tar.gz > /dev/null 2>&1

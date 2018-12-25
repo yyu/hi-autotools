@@ -11,12 +11,16 @@ prefix      = /usr/local
 exec_prefix = ${prefix}
 bindir      = ${exec_prefix}/bin
 
+# VPATH-specific substitution variables
+srcdir = ../../src
+VPATH  = ../../src
+
 all: jupiter
 
 CFLAGS = -g -O0
 
 jupiter: main.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ main.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $(srcdir)/main.c
 
 Makefile: Makefile.in ../config.status
 	cd .. && ./config.status src/$@
