@@ -5,6 +5,7 @@ AC_PREREQ([2.69])
 AC_INIT([Jupiter], [1.0], [jupiter-bugs@example.org])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])
+AC_CHECK_HEADERS([unistd.h foobar.h])
 
 # Checks for programs.
 AC_PROG_CC
